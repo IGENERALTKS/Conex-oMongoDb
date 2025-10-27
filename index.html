@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Documentos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Relatório de Atividades</h1>
+    <form id="documentForm">
+        <fieldset>
+            <legend>Informações Gerais</legend>
+            <label>Título:</label>
+            <input type="text" id="titulo"required>
+
+            <label>Tipo:</label>
+            <select id="tipo">
+                <option value="Relatorio">Relatorio</option>
+                <option value="Planejamento">Planejamento</option>
+            </select>
+            <label>Status:</label>
+
+            <!-- select#status>option -->
+            <select id="status">
+                <option value="Aprovado">Aprovado</option>
+                <option value="Em revisão">Em revisão</option>
+                <option value="Cancelado">Cancelado</option>
+            </select>
+
+            <label >Data de Envio:</label>
+            <!-- input:datetime-local#nome_responsavel -->
+            <input type="datetime-local" name="" id="nome_responsavel" required>
+
+        </fieldset>
+        <fieldset>
+            <legend>Responsável</legend>
+            <label>Nome</label>
+            <input type="text" id="nome_responsavel" required>
+
+            <!-- label/input#cargo_responsavel -->
+            <label >Cargo: </label>
+            <input type="text" id="cargo_responsavel" required>
+
+            <!-- label/input#cargo_responsavel -->
+            <label>Departamento:</label>
+            <input type="text" id="departamento_responsavel">
+        </fieldset>
+
+        <!-- fieldset>legend/input#palavra_input/ul#lista_palavras -->
+        <fieldset>
+            <legend>Palavras Chaves</legend>
+            <input type="text" id="palavra_input" placeholder="Digite e pressione Enter">
+            <ul id="lista_palavras"></ul>
+        </fieldset>
+
+        <!-- fieldset>legend/div#revisoesContainer/button#addRevisao -->
+        <fieldset>
+            <legend>
+            <div id="revisoesContainer"></div>
+            <button id="addRevisao">+ Adicionar Revisão</button>
+        </fieldset>
+
+        <!-- div.botoes-container>button:submit.gerarBtn/button:button#gerarPdfBtn.pdfBtn -->
+        <div class="botoes-container">
+            <button type="submit" class="gerarBtn">Gerar Documento</button>
+            <button type="button" id="gerarPdfBtn" class="pdfBtn">Gerar PDF</button>        
+        </div>
+    </form>
+
+    <!-- div.header-contaainer>h1/button:button#copyJsonBtn.copy-btn -->
+
+    <div class="header-contaainer">
+        <h1>Documento Gerado</h1>
+        <button type="button" id="copyJsonBtn" class="copy-btn">Copiar JSON</button>
+    </div>
+    <pre id="jsonOutput"></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
